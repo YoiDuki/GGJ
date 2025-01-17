@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm36n160w0q40"]
+
+[ext_resource type="Script" path="res://static_bubble.gd" id="1_qm3h6"]
+[ext_resource type="Texture2D" uid="uid://bvqo4gpkgxjs5" path="res://assets/bubble.png" id="1_wj4b7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8m1hc"]
+radius = 300.0
+height = 760.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_qm3h6")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+texture = ExtResource("1_wj4b7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8m1hc")
