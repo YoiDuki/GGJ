@@ -1,12 +1,13 @@
 extends AnimatableBody2D
 class_name Bubble
 
-const SPEED = 100.0
+const SCALE_RATE = 0.05
 
 @onready var sprite: Sprite2D = $Bubble
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 @export var durability = 3
+@export var speed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,9 +18,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	sprite.scale += Vector2.ONE * .1 * delta
-	collision.scale += Vector2.ONE * .1 * delta
-	position += Vector2.UP * SPEED * delta
+	sprite.scale += Vector2.ONE * SCALE_RATE * delta
+	collision.scale += Vector2.ONE * SCALE_RATE * delta
+	position += Vector2.UP * speed * delta
 
 
 func durability_decrease():

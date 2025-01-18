@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://i0gdxidqoihn" path="res://icon.svg" id="2_oej7a"]
 [ext_resource type="Texture2D" uid="uid://bxggj2x3lpg5w" path="res://assets/bg0.png" id="3_dggk2"]
 [ext_resource type="Texture2D" uid="uid://c72tm33w3yblu" path="res://assets/大背景01.png" id="4_yd57n"]
-[ext_resource type="PackedScene" uid="uid://b38vfb8l1q0vs" path="res://scenes/static_bubble.tscn" id="5_0i7kn"]
+[ext_resource type="PackedScene" uid="uid://ceegx2xay66tj" path="res://scenes/bubble_generator.tscn" id="6_ybjea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10hjb"]
 size = Vector2(3143, 1584)
@@ -53,5 +53,6 @@ z_index = -2
 scale = Vector2(1.84, 1.84)
 texture = ExtResource("4_yd57n")
 
-[node name="StaticBody2D2" parent="Area2D" instance=ExtResource("5_0i7kn")]
-position = Vector2(-503, 672)
+[node name="BubbleGenerator" parent="Area2D" instance=ExtResource("6_ybjea")]
+position = Vector2(-517, 837)
+spawn_interval = 5.0

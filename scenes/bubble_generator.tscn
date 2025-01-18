@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceegx2xay66tj"]
+
+[ext_resource type="Script" path="res://scenes/bubble_generator.gd" id="1_1432p"]
+
+[node name="BubbleGenerator" type="Node2D"]
+script = ExtResource("1_1432p")
+spawn_interval = 2.0
