@@ -7,7 +7,7 @@
 radius = 300.0
 height = 760.0
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="AnimatableBody2D"]
 collision_layer = 2
 script = ExtResource("1_qm3h6")
 

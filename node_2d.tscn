@@ -20,7 +20,6 @@ script = ExtResource("1_vubve")
 zoom = Vector2(0.43, 0.43)
 
 [node name="Area2D" type="Area2D" parent="."]
-gravity_space_override = 3
 gravity = 400.0
 script = ExtResource("2_m11c0")
 
@@ -28,7 +27,7 @@ script = ExtResource("2_m11c0")
 position = Vector2(29, -3)
 shape = SubResource("RectangleShape2D_10hjb")
 
-[node name="RigidBody2D" parent="Area2D" instance=ExtResource("2_mgms2")]
+[node name="Bubble" parent="Area2D" instance=ExtResource("2_mgms2")]
 position = Vector2(-546, 689)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Area2D"]
