@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://17vbls3n1arr"]
+[gd_scene load_steps=8 format=3 uid="uid://17vbls3n1arr"]
 
-[ext_resource type="Script" path="res://scenes/palyer.gd" id="1_stm0t"]
-[ext_resource type="Texture2D" uid="uid://i0gdxidqoihn" path="res://icon.svg" id="2_oej7a"]
+[ext_resource type="PackedScene" uid="uid://dkb5m68n5ia11" path="res://scenes/player.tscn" id="1_vumj2"]
 [ext_resource type="Texture2D" uid="uid://bxggj2x3lpg5w" path="res://assets/bg0.png" id="3_dggk2"]
 [ext_resource type="Texture2D" uid="uid://c72tm33w3yblu" path="res://assets/大背景01.png" id="4_yd57n"]
 [ext_resource type="Script" path="res://scenes/dead_zone.gd" id="6_cj1ak"]
@@ -9,8 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10hjb"]
 size = Vector2(3143, 1584)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxjl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcy41"]
 size = Vector2(1920, 200)
@@ -26,20 +23,10 @@ gravity = 400.0
 position = Vector2(29, -3)
 shape = SubResource("RectangleShape2D_10hjb")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Area2D"]
-position = Vector2(-869, 149)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("1_stm0t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/CharacterBody2D"]
-scale = Vector2(6.74, 6.74)
-shape = SubResource("CapsuleShape2D_sxjl7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CharacterBody2D"]
-texture = ExtResource("2_oej7a")
+[node name="CharacterBody2D" parent="Area2D" instance=ExtResource("1_vumj2")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+scale = Vector2(0.81, 0.81)
 
 [node name="Bg0" type="Sprite2D" parent="Area2D/StaticBody2D"]
 scale = Vector2(0.63, 0.63)
@@ -57,16 +44,24 @@ scale = Vector2(1.84, 1.84)
 texture = ExtResource("4_yd57n")
 
 [node name="BubbleGenerator" parent="Area2D" instance=ExtResource("6_ybjea")]
-position = Vector2(-517, 837)
+position = Vector2(-495, 561)
 spawn_interval = 5.0
 
 [node name="BubbleGenerator2" parent="Area2D" instance=ExtResource("6_ybjea")]
-position = Vector2(-187, 630)
+position = Vector2(-224, 509)
 
-[node name="DeadZone" type="Area2D" parent="."]
-position = Vector2(2, -640)
+[node name="DeadZoneTop" type="Area2D" parent="."]
+position = Vector2(19, -896)
 collision_mask = 3
 script = ExtResource("6_cj1ak")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZoneTop"]
+shape = SubResource("RectangleShape2D_bcy41")
+
+[node name="DeadZoneBottom" type="Area2D" parent="."]
+position = Vector2(7, 824)
+collision_mask = 3
+script = ExtResource("6_cj1ak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZoneBottom"]
 shape = SubResource("RectangleShape2D_bcy41")

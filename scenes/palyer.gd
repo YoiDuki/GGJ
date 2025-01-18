@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
@@ -45,6 +45,5 @@ func _physics_process(delta: float) -> void:
 		current_platform = collision.get_collider()
 
 
-func _die():
+func dead():
 	queue_free()
-	
