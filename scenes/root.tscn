@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://17vbls3n1arr"]
+[gd_scene load_steps=10 format=3 uid="uid://17vbls3n1arr"]
 
 [ext_resource type="Script" path="res://scenes/palyer.gd" id="1_stm0t"]
 [ext_resource type="Texture2D" uid="uid://i0gdxidqoihn" path="res://icon.svg" id="2_oej7a"]
 [ext_resource type="Texture2D" uid="uid://bxggj2x3lpg5w" path="res://assets/bg0.png" id="3_dggk2"]
 [ext_resource type="Texture2D" uid="uid://c72tm33w3yblu" path="res://assets/大背景01.png" id="4_yd57n"]
+[ext_resource type="Script" path="res://scenes/dead_zone.gd" id="6_cj1ak"]
 [ext_resource type="PackedScene" uid="uid://ceegx2xay66tj" path="res://scenes/bubble_generator.tscn" id="6_ybjea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10hjb"]
@@ -11,10 +12,12 @@ size = Vector2(3143, 1584)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxjl7"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcy41"]
+size = Vector2(1920, 200)
+
 [node name="Root" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.43, 0.43)
 
 [node name="Area2D" type="Area2D" parent="."]
 gravity = 400.0
@@ -56,3 +59,11 @@ texture = ExtResource("4_yd57n")
 [node name="BubbleGenerator" parent="Area2D" instance=ExtResource("6_ybjea")]
 position = Vector2(-517, 837)
 spawn_interval = 5.0
+
+[node name="DeadZone" type="Area2D" parent="."]
+position = Vector2(2, -640)
+collision_mask = 3
+script = ExtResource("6_cj1ak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+shape = SubResource("RectangleShape2D_bcy41")

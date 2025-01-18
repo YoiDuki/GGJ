@@ -6,7 +6,8 @@ extends Node2D
 @export var spawn_count: int = 1
 # @export var spawn_radius: float = 100.0
 @export var spawn_speed: float = 100.0
-@export var spwan_durability: int = 3 
+@export var spwan_durability: int = 3
+@export var spwan_direction: Vector2 = Vector2.UP
 
 var timer: Timer
 
@@ -32,3 +33,4 @@ func _spwan_bubble() -> void:
 		bubble.position = position
 		bubble.speed = spawn_speed
 		bubble.durability = spwan_durability
+		bubble.direction = spwan_direction

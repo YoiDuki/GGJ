@@ -8,6 +8,7 @@ const SCALE_RATE = 0.05
 
 @export var durability = 3
 @export var speed = 100
+@export var direction = Vector2.UP
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	sprite.scale += Vector2.ONE * SCALE_RATE * delta
 	collision.scale += Vector2.ONE * SCALE_RATE * delta
-	position += Vector2.UP * speed * delta
+	position += direction * speed * delta
 
 
 func durability_decrease():

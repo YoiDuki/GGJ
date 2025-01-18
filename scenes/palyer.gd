@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -600.0
 
 var current_platform = null:
 	set(value):
-		print(current_platform)
+		# print(current_platform)
 		if current_platform == value:
 			return
 		current_platform = value
@@ -41,5 +41,10 @@ func _physics_process(delta: float) -> void:
 		pass
 	for i in collision_count:
 		var collision = get_slide_collision(i)
-		print("Collided with: ", collision.get_collider().name)
+		# print("Collided with: ", collision.get_collider().name)
 		current_platform = collision.get_collider()
+
+
+func _die():
+	queue_free()
+	
